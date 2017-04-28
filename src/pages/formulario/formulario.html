@@ -1,0 +1,61 @@
+<!--
+  Generated template for the Formulario page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Formulario</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+    <div >
+    <ion-label >{{usuario}}</ion-label>
+  </div>
+  <form [formGroup]="formulario">
+  <ion-list>
+    <ion-item>
+      <ion-label floating color="primary">Nombre(s)</ion-label>
+      <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
+     <ion-item *ngIf="formulario.get('nombre').hasError('required') && (formulario.get('nombre').touched||sumbit)" no-lines>
+      <ion-label color="danger">Campo Obligatorio</ion-label>
+    </ion-item>
+      <ion-item>
+      <ion-label floating color="primary">Apellido Paterno</ion-label>
+      <ion-input formControlName="ap"></ion-input>
+    </ion-item>
+     <ion-item *ngIf="formulario.get('ap').hasError('required') && (formulario.get('ap').touched||sumbit)" no-lines>
+      <ion-label color="danger">Campo Obligatorio</ion-label>
+    </ion-item>
+      <ion-item>
+      <ion-label floating color="primary">Apellido Materno</ion-label>
+      <ion-input formControlName="am"></ion-input>
+    </ion-item>
+     <ion-item *ngIf="formulario.get('am').hasError('required') && (formulario.get('am').touched||sumbit)" no-lines>
+      <ion-label color="danger">Campo Obligatorio</ion-label>
+    </ion-item>
+     <ion-item>
+      <ion-label floating color="primary">Fecha</ion-label>
+      <ion-input formControlName="fecha"></ion-input>
+    </ion-item>
+     <ion-item *ngIf="formulario.get('fecha').hasError('required') && (formulario.get('fecha').touched||sumbit)" no-lines>
+      <ion-label color="danger">Campo Obligatorio</ion-label>
+    </ion-item>
+     <ion-item *ngIf="formulario.get('fecha').hasError('pattern') && (formulario.get('fecha').touched||sumbit)" no-lines>
+      <ion-label color="danger">EL formato debe ser AAAA/MM/DD</ion-label>
+    </ion-item>
+     <ion-item>
+      <ion-label floating color="primary">RFC</ion-label>
+      <ion-input readonly></ion-input>
+    </ion-item>
+  </ion-list>
+    <button (click) = "click()" >
+    Continuar
+    </button> 
+  </form>
+  
+</ion-content>
